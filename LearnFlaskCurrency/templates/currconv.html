@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block head_title %}
+	currency converter
+{% endblock %}
+
+
+{% block content %}
+			<h2>currency converter</h2>
+			
+			<form action='/currconv'>
+				<label for="curr1">Currency 1:</label>
+				<input type='text' name='curr1' id='curr1'/>
+
+				<label for="curr2">Currency 2:</label>
+				<input type='text' name='curr2' id='curr2'/>
+
+				<label for "fxrate">Kurs 1->2:</label>
+				<input type='text' name='fxrate' id='fxrate'/>
+				
+				<br/>
+				<input type='submit'></a>
+			</form>
+			
+			<h2>Showing exchange rates for {{ cc.curr1 }} to {{ cc.curr2 }} at exchange rate of {{ cc.fxrate }} </h2>
+
+			<table>
+			<tr><th>{{ cc.curr1 }}</th><th>{{ cc.curr2 }}</th></tr>
+			{% for i in range(1,10): %}
+				<tr>
+					<td>{{ i }}</td>
+					<td>{{ cc.exchange(i) }}</td>
+				</tr>	
+			{% endfor %}		
+			</table>
+			
+{% endblock %}

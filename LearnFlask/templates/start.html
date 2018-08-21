@@ -1,0 +1,18 @@
+{% extends "layouts/main.html" %}
+
+{% block head_title %}
+	Start
+{% endblock %}
+
+
+{% block content %}
+			<h2>Somelist3</h2>
+			<p>Hello '{{name}}'</p>
+			
+			<ol>
+				{% for item in liste1 %}
+					<li>{{item}}</li>
+				{% endfor %}
+			</ol>
+			
+{% endblock %}
